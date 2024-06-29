@@ -1,0 +1,50 @@
+/* Custom styles for Taskinator */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+#addTodoForm {
+  margin-bottom: 30px;
+}
+
+#todoList {
+  margin-top: 20px;
+}
+
+.todo-item {
+  margin-bottom: 10px;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-actions button {
+  margin-left: 10px;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

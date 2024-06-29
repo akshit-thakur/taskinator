@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "2040:2040"
+    depends_on:
+      - mongo
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
+    volumes:
+      - .:/app
+  mongo:
+    image: mongo:5.0
+    ports:
+      - "27018:27017" # Ensure MongoDB is on a free port
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
