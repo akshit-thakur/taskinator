@@ -4,54 +4,128 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taskinator</title>
+
+    <!-- Stylesheets -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='index.css') }}"
+      href="{{ url_for('static', filename='css/fontawesome.css') }}"
+      integrity="..."
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      href="{{ url_for('static', filename='css/brands.css') }}"
+      integrity="..."
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/solid.css') }}"
+      integrity="..."
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
     />
   </head>
   <body>
-    <div class="container">
-      <h1>Taskinator</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Taskinator</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <button
+              class="btn btn-outline-light my-2 my-sm-0"
+              type="button"
+              data-toggle="modal"
+              data-target="#addTodoModal"
+            >
+              Add Todo
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-      <form id="addTodoForm">
-        <div class="form-group">
-          <label for="todoTitle">Todo Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="todoTitle"
-            placeholder="Enter todo title"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="todoDescription">Todo Description</label>
-          <textarea
-            class="form-control"
-            id="todoDescription"
-            rows="3"
-            placeholder="Enter todo description"
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Add Todo</button>
-      </form>
-
-      <hr />
-
-      <ul id="todoList" class="list-group"></ul>
+    <!-- Main Content -->
+    <div class="container mt-5">
+      <ul id="todoList" class="list-group">
+        <!-- Todo items will be dynamically added here -->
+      </ul>
     </div>
 
+    <!-- Add Todo Modal -->
+    <div
+      class="modal fade"
+      id="addTodoModal"
+      tabindex="-1"
+      aria-labelledby="addTodoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addTodoModalLabel">Add Todo</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="addTodoForm">
+              <div class="form-group">
+                <label for="todoTitle">Todo Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="todoTitle"
+                  placeholder="Enter todo title"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="todoDescription">Todo Description</label>
+                <textarea
+                  class="form-control"
+                  id="todoDescription"
+                  rows="3"
+                  placeholder="Enter todo description"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Add Todo</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
   </body>
 </html>

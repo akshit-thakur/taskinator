@@ -1,0 +1,74 @@
+/* Custom styles for Taskinator */
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding-top: 20px;
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px; /* Adjusted for larger displays */
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+  text-align: center;
+}
+
+/* Form group styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Add Todo Form styles */
+#addTodoForm {
+  margin-bottom: 30px;
+}
+
+/* Todo list styles */
+#todoList {
+  margin-top: 20px;
+}
+
+/* Individual todo item styles */
+.todo-item {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Todo actions (icons) styles */
+.todo-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Icon styles within todo actions */
+.todo-actions i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Completed todo item styles */
+.todo-completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Navbar item spacing */
+.navbar-nav .nav-item + .nav-item {
+  margin-left: 1.5rem; /* Adjust spacing between navbar items */
+}
+
+/* Modal dialog width */
+.modal-dialog {
+  max-width: 600px; /* Set modal width */
+}

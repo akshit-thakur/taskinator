@@ -1,16 +1,11 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
+from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson import json_util
-from pymongo import MongoClient
 from datetime import datetime
 
-app = Flask(__name__)
-client = MongoClient('mongodb://mongo:27017/')
-db = client.taskinator
-todos_collection = db.todos
-
-
+# Initialize Flask app
 app = Flask(__name__)
 CORS(app)
 
@@ -23,11 +18,11 @@ todos_collection = db.todos
 def index():
     return render_template('index.html')
 
-
 @app.route('/api/todos', methods=['POST'])
 def add_todo():
-    title = request.json.get('title')
-    description = request.json.get('description')
+    data = request.json
+    title = data.get('title')
+    description = data.get('description')
     
     if not title:
         return jsonify({"error": "Title is required"}), 400
@@ -54,8 +49,9 @@ def get_todos():
 
 @app.route('/api/todos/<string:todo_id>', methods=['PUT'])
 def edit_todo(todo_id):
-    title = request.json.get('title')
-    description = request.json.get('description')
+    data = request.json
+    title = data.get('title')
+    description = data.get('description')
     
     update_fields = {}
     if title:
